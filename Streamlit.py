@@ -29,7 +29,8 @@ st.sidebar.markdown("Select the Charts/Plots accordingly:")
 
 
 def load_data():
-    data=pd.read_csv("./../2020-08-01_2020-08-04_predictions_example.csv")
+    # data=pd.read_csv("./../2020-08-01_2020-08-04_predictions_example.csv")
+    data = pd.read_csv("https://github.com/rlew631/covid-xprize-heroku/raw/main/2020-08-01_2020-08-04_predictions_example.csv")
     # data = pd.read_csv("https://github.com/OxCGRT/covid-policy-tracker/blob/master/data/OxCGRT_latest.csv")
     return data
 
@@ -66,7 +67,8 @@ if st.sidebar.checkbox("Show Analysis by Country", True, key=2):
         #st.write(country_data)
 
         stringency = st.slider('Select the level of stringency for NPIs', 0, 9)
-        prescribe_df = pd.read_csv('all_2021q1_test_task.csv')
+        # prescribe_df = pd.read_csv('all_2021q1_test_task.csv')
+        prescribe_df = pd.read_csv('https://github.com/rlew631/covid-xprize-heroku/raw/main/all_2021q1_test_task.csv')
         prescribe_df = prescribe_df[prescribe_df['CountryName'] == select] #select the country
         prescribe_df = prescribe_df[pd.to_datetime(prescribe_df['Date']) >= datetime.datetime.today()] #select today and future dates
         prescribe_df = prescribe_df[prescribe_df['PrescriptionIndex'] == stringency] #select the relevant prescription index
